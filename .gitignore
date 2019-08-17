@@ -13,6 +13,8 @@
 !/log/.keep
 !/tmp/.keep
 
+/public/images/*
+!/public/images/.keep
 
 /public/assets
 .byebug_history
