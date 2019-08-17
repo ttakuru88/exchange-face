@@ -8,6 +8,7 @@ gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'ruby-opencv'
+gem 'haml-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
