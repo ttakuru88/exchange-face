@@ -1,0 +1,5 @@
+%h2 hi
+
+= form_with url: photos_path, method: :post, local: true do |f|
+  = f.file_field :photo
+  = f.submit
