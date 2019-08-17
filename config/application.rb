@@ -28,6 +28,16 @@ module ExchangeFace
     # the framework and any gems in your application.
 
     # Don't generate system test files.
-    config.generators.system_tests = nil
+    config.paths.add 'lib', eager_load: true
+    config.time_zone = 'Tokyo'
+    config.i18n.available_locales = [:ja]
+    config.i18n.default_locale = :ja
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+
+    config.generators do |g|
+      g.assets false
+      g.helper false
+      g.system_tests false
+    end
   end
 end
