@@ -6,13 +6,13 @@ class PhotosController < ApplicationController
 
   def create
     image = OpenCV::IplImage.load(params[:photo].path)
-    face_image = OpenCV::IplImage.load(Rails.root.join('lib', 'icon_blue.png').to_s)
+    face_image = OpenCV::IplImage.load(Rails.root.join('lib', 'face.png').to_s)
 
     @@detector.detect_objects(image).each do |region|
       resized_face = face_image.resize(region)
       image.set_roi(region)
       (resized_face.rows * resized_face.cols).times do |i|
-        image[i] = resized_face[i] if resized_face[i][0].to_i > 0 || resized_face[i][1].to_i > 0 || resized_face[i][2].to_i > 0
+        image[i] = resized_face[i]
       end
       image.reset_roi
     end
